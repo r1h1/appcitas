@@ -26,7 +26,7 @@
             Connection conn = DriverManager.getConnection(url,"root","");
 
 
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM usuarios_citas WHERE usuarios_id = ?");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM solicitante_citas WHERE solicitante_id = ?");
             ps.setString(1,id);
             
             i = ps.executeUpdate();
@@ -43,7 +43,7 @@
             %>
             <script language="javascript">
             alert("Eliminado!");	//Java Script alert message
-            window.location.href = "../usuarios.jsp";
+            window.location.href = "../solicitante.jsp";
             </script>
             <%
             

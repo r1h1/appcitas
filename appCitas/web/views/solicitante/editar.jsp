@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="../../assets/css/dashboard.css">
+        <link rel="stylesheet" href="../../assets/css/style.css">
 
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
         <!-- Ionic icons -->
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
-        <title>Usuarios - Citas</title>
+        <title>Solicitante - Citas</title>
     </head>
 
     <body>
@@ -38,28 +38,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../dashboard.jsp">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="dashboard.jsp">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="../usuarios.jsp">Usuarios</a>
+                            <a class="nav-link active" href="usuarios.jsp">Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Solicitante</a>
+                            <a class="nav-link active" aria-current="page" href="solicitante.jsp">Solicitante</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Motivos de Atención</a>
+                            <a class="nav-link active" aria-current="page" href="motivosatencion.jsp">Motivos de Atención</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Horarios</a>
+                            <a class="nav-link active" aria-current="page" href="busquedacitas.jsp">Búsqueda de Citas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Atención al Cliente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Búsqueda de Citas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Solicitudes en Cola</a>
+                            <a class="nav-link active" aria-current="page" href="solicitudesencola.jsp">Solicitudes en Cola</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -106,27 +104,45 @@
 
 
                                             Statement st = conn.createStatement();
-                                            String str = "SELECT * FROM usuarios_citas WHERE usuarios_id ='"+id+"'";
+                                            String str = "SELECT * FROM `solicitante_citas` WHERE solicitante_id ='"+id+"'";
                                             ResultSet rs = st.executeQuery(str);
                                            while(rs.next()){
                                         %>
 
                                         <form class="row g-3" action="actualizar.jsp" method="POST">
-                                            <input type="hidden" class="form-control" name="txtid" value="<%=rs.getString("usuarios_id")%>">
+                                            <input type="hidden" class="form-control" name="txtid" value="<%=rs.getString("solicitante_id")%>">
 
-                                            <div class="col-md-12 py-2">
-                                                <label for="inputPassword4" class="form-label">Usuario</label>
-                                                <input type="text" class="form-control" name="nombreusuario" value="<%=rs.getString("usuario")%>">
+                                            <div class="col-md-6 py-2">
+
+                                                <%-- Nombre Completo --%>
+                                                <label for="inputPassword4" class="form-label">Nombre Completo</label>
+                                                <input type="text" class="form-control" name="nombre" maxlength="40" value="<%=rs.getString("nombre_completo")%>" required>
                                             </div>
 
-                                            <div class="col-md-12 py-2">
-                                                <label for="inputAddress" class="form-label">Contraseña</label>
-                                                <input type="text" class="form-control" name="contrasena" value="<%=rs.getString("contrasena")%>">
+                                            <div class="col-md-6 py-2">
+
+                                                <%-- Número de Documento --%>
+                                                <label for="inputAddress" class="form-label">Número de Documento (DPI, NIT, Etc)</label>
+                                                <input type="numeric" class="form-control" name="documento" maxlength="13" value="<%=rs.getString("documento")%>" required>
+                                            </div>
+
+                                            <div class="col-md-6 py-2">
+
+                                                <%-- Dirección --%>
+                                                <label for="inputAddress" class="form-label">Dirección</label>
+                                                <input type="text" class="form-control" name="direccion" maxlength="40" value="<%=rs.getString("direccion")%>" required>
+                                            </div>
+
+                                            <div class="col-md-6 py-2">
+
+                                                <%-- Teléfono --%>
+                                                <label for="inputAddress" class="form-label">Teléfono</label>
+                                                <input type="numeric" class="form-control" name="telefono" maxlength="8" value="<%=rs.getString("telefono")%>"  required>
                                             </div>
 
                                             <div class="col-md-12 py-3">
                                                 <button type="submit" class="btn btn-warning" value="Actualizar Información">Actualizar</button>
-                                                <a href="../usuarios.jsp" class="btn btn-success">Regresar</a>
+                                                <a href="../solicitante.jsp" class="btn btn-success">Regresar</a>
                                             </div>
 
                                         </form>

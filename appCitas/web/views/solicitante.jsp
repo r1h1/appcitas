@@ -17,17 +17,17 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="../assets/css/dashboard.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
 
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
-        
+
         <link rel="icon" href="https://www.unex.es/organizacion/servicios-universitarios/servicios/siue/archivos/imagenes/Cita.png/image">
 
         <!-- Ionic icons -->
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
-        <title>Usuarios - Citas</title>
+        <title>Solicitante - Citas</title>
     </head>
 
     <body>
@@ -50,7 +50,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="motivosatencion.jsp">Motivos de Atención</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
                         </li>
@@ -87,7 +87,6 @@
 
             <section class="py-3">
                 <div class="container">
-                    <div class="container">
                         <div class="card rounded-0">
                             <div class="row">
                                 <div class="col-lg-12 d-flex stat my-4 ">
@@ -101,30 +100,30 @@
 
                                                 <%-- Nombre Completo --%>
                                                 <label for="inputPassword4" class="form-label">Nombre Completo</label>
-                                                <input type="text" class="form-control" name="usuario" maxlength="50" required>
+                                                <input type="text" class="form-control" name="nombre" maxlength="40" required>
                                             </div>
 
                                             <div class="col-md-6 py-2">
 
                                                 <%-- Número de Documento --%>
                                                 <label for="inputAddress" class="form-label">Número de Documento (DPI, NIT, Etc)</label>
-                                                <input type="text" class="form-control" name="contrasena" maxlength="50" required>
+                                                <input type="numeric" class="form-control" name="documento" maxlength="13" required>
                                             </div>
-                                                
+
                                             <div class="col-md-6 py-2">
 
                                                 <%-- Dirección --%>
                                                 <label for="inputAddress" class="form-label">Dirección</label>
-                                                <input type="text" class="form-control" name="contrasena" maxlength="50" required>
+                                                <input type="text" class="form-control" name="direccion" maxlength="40" required>
                                             </div>
-                                            
+
                                             <div class="col-md-6 py-2">
 
                                                 <%-- Teléfono --%>
                                                 <label for="inputAddress" class="form-label">Teléfono</label>
-                                                <input type="text" class="form-control" name="contrasena" maxlength="50" required>
+                                                <input type="numeric" class="form-control" name="telefono" maxlength="8" required>
                                             </div>
-                                            
+
 
                                             <div class="col-md-6 py-3">
 
@@ -143,89 +142,95 @@
             <%-- Lectura de datos insertados previamente --%>
             <section class="py-3">
                 <div class="container">
+                    <div class="card rounded-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="table-responsive w-100 w-100">
+                                    <table class="table" id="tabla-mostrar">
 
-                    <div class="row">
-                        <div class="table-responsive w-100 w-100">
-                            <table class="table table-striped">
-                                
 
-                                    </div>
-                                <thead class="table-dark">
 
-                                    <%-- Tabla para ver los campos ordenados --%>
-                                    <tr>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Contraseña</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                    </tr>
+                                        <thead class="table-dark">
 
-                                    <%-- Import de librerias JAVA --%>
-                                    <%@ page import = "java.sql.*"%>
-                                    <%@ page import = "java.sql.Connection"%>
-                                    <%@ page import = "java.sql.DriverManager"%>
-                                    <%@ page import = "java.sql.SQLException"%>
-                                    <%           
+                                            <%-- Tabla para ver los campos ordenados --%>
+                                            <tr>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">No. de Documento</th>
+                                                <th scope="col">Dirección</th>
+                                                <th scope="col">Teléfono</th>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                            </tr>
+
+                                            <%-- Import de librerias JAVA --%>
+                                            <%@ page import = "java.sql.*"%>
+                                            <%@ page import = "java.sql.Connection"%>
+                                            <%@ page import = "java.sql.DriverManager"%>
+                                            <%@ page import = "java.sql.SQLException"%>
+                                            <%           
                                            
-                                            String url = "jdbc:mysql://localhost:3306/appcitas";
+                                                    String url = "jdbc:mysql://localhost:3306/appcitas";
 
-                                            int i=0;
+                                                    int i=0;
                                                             
-                                            //SI TODO CORRECTO, INICIA EL TRY
-                                            try{
+                                                    //SI TODO CORRECTO, INICIA EL TRY
+                                                    try{
 
-                                                //HACE LA CONEXIÓN
-                                                Class.forName("com.mysql.jdbc.Driver");
-                                                Connection conn = DriverManager.getConnection(url,"root","");
+                                                        //HACE LA CONEXIÓN
+                                                        Class.forName("com.mysql.jdbc.Driver");
+                                                        Connection conn = DriverManager.getConnection(url,"root","");
 
-                                                //SE CREA EL ESTADO DE CONEXIÓN
-                                                Statement st = conn.createStatement();
+                                                        //SE CREA EL ESTADO DE CONEXIÓN
+                                                        Statement st = conn.createStatement();
                                                                 
-                                                //SE HACE LA CONSULTA
-                                                String str = "SELECT * FROM usuarios_citas";
+                                                        //SE HACE LA CONSULTA
+                                                        String str = "SELECT * FROM solicitante_citas ORDER BY solicitante_id ASC";
 
-                                                //SE EJECUTA LA CONSULTA
-                                                ResultSet rs = st.executeQuery(str);
+                                                        //SE EJECUTA LA CONSULTA
+                                                        ResultSet rs = st.executeQuery(str);
 
-                                                //CUANDO EL RESULTADO DE RS SIGA ARROJANDO VALORES,
-                                                //SEGUIRÉ MOSTRANDO DATOS HASTA EL FIN
-                                                while(rs.next()){
-                                    %>
+                                                        //CUANDO EL RESULTADO DE RS SIGA ARROJANDO VALORES,
+                                                        //SEGUIRÉ MOSTRANDO DATOS HASTA EL FIN
+                                                        while(rs.next()){
+                                            %>
 
-                                </thead>
-                                <tbody>
-                                <td><%=rs.getString("usuario")%></td>
-                                <td><%=rs.getString("contrasena")%></td>
-                                <td><a href="usuarios/editar.jsp?ID=<%=rs.getInt("usuarios_id")%>" class="btn btn-warning">Editar</a></td>
-                                <td><a href="usuarios/eliminar.jsp?ID=<%=rs.getInt("usuarios_id")%>" class="btn btn-danger">Eliminar</a></td>
-                                </tbody>
+                                        </thead>
+                                        <tbody>
+                                        <td><%=rs.getString("nombre_completo")%></td>
+                                        <td><%=rs.getString("documento")%></td>
+                                        <td><%=rs.getString("direccion")%></td>
+                                        <td><%=rs.getString("telefono")%></td>
+                                        <td><a href="solicitante/editar.jsp?ID=<%=rs.getInt("solicitante_id")%>" class="btn btn-warning">Editar</a></td>
+                                        <td><a href="solicitante/eliminar.jsp?ID=<%=rs.getInt("solicitante_id")%>" class="btn btn-danger">Eliminar</a></td>
+                                        </tbody>
 
-                                <%
-                            }
+                                        <%
+                                    }
                                                                 
 
-                        }
+                                }
 
-                        //SI FALLA, SE MUESTRA EL ERROR
-                        catch(Exception e){
+                                //SI FALLA, SE MUESTRA EL ERROR
+                                catch(Exception e){
 
-                            e.printStackTrace();
-                        }
+                                    e.printStackTrace();
+                                }
 
                                     
-                        if(i>0){
+                                if(i>0){
 
-                                %>
+                                        %>
 
-                                <%
+                                        <%
 
-                                        }
-                                %>
-                            </table>
+                                                }
+                                        %>
+                                    </table>
 
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
             </section>
 
 

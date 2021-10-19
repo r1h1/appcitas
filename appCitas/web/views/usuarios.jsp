@@ -17,11 +17,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="../assets/css/dashboard.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
 
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
-        
+
         <link rel="icon" href="https://www.unex.es/organizacion/servicios-universitarios/servicios/siue/archivos/imagenes/Cita.png/image">
 
         <!-- Ionic icons -->
@@ -31,7 +31,7 @@
     </head>
 
     <body>
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="motivosatencion.jsp">Motivos de Atención</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
                         </li>
@@ -128,13 +128,14 @@
             <%-- Lectura de datos insertados previamente --%>
             <section class="py-3">
                 <div class="container">
+                    <div class="card rounded-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="table-responsive w-100 w-100">
+                                    <table class="table" id="tabla-mostrar">
 
-                    <div class="row">
-                        <div class="table-responsive w-100 w-100">
-                            <table class="table table-striped">
-                                
 
-                                    </div>
+                                </div>
                                 <thead class="table-dark">
 
                                     <%-- Tabla para ver los campos ordenados --%>
@@ -206,17 +207,19 @@
 
                                         }
                                 %>
-                            </table>
+                                </table>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-
         </div>
+    </section>
 
-    </div>
+
+</div>
+
+</div>
 </div>
 
 <!-- Optional JavaScript -->

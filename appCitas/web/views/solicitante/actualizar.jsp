@@ -1,8 +1,4 @@
-<%-- 
-    Document   : conbdd
-    Created on : 11/09/2021, 02:34:51 PM
-    Author     : Stark Industries
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -18,18 +14,23 @@
         int i=0;
         
         String id = request.getParameter("txtid");
-        String usuario = request.getParameter("nombreusuario");
-        String contrasena = request.getParameter("contrasena");
+        String snombres = request.getParameter("nombre");
+        String sdocumentos = request.getParameter("documento");
+        String sdireccions = request.getParameter("direccion");
+        String stelefonos = request.getParameter("telefono");
+
         
         try{
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url,"root","");
 
-            PreparedStatement statement = conn.prepareStatement("UPDATE `usuarios_citas` SET `usuario`=?,`contrasena`=? WHERE `usuarios_id`=?");
-            statement.setString(1,usuario);
-            statement.setString(2,contrasena);
-            statement.setString(3,id);
+            PreparedStatement statement = conn.prepareStatement("UPDATE `solicitante_citas` SET `nombre_completo`=?,`documento`=?,`direccion`=?,`telefono`=? WHERE `solicitante_id`=?");
+            statement.setString(1,snombres);
+            statement.setString(2,sdocumentos);
+            statement.setString(3,sdireccions);
+            statement.setString(4,stelefonos);
+            statement.setString(5,id);
 
             i = statement.executeUpdate();
 
@@ -43,7 +44,7 @@
             %>
             <script language="javascript">
             alert("Editado!");	//Java Script alert message
-            window.location.href = "../usuarios.jsp";
+            window.location.href = "../solicitante.jsp";
             </script>
             <%
         }

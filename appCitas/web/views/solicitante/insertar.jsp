@@ -17,18 +17,22 @@
         
         int i=0;
         
-        try{
+        try{            
             
-            String usuariolg = request.getParameter("usuario");
-            String contrasenalg = request.getParameter("contrasena");
+            String nombres = request.getParameter("nombre");
+            String documentos = request.getParameter("documento");
+            String direccions = request.getParameter("direccion");
+            String telefonos = request.getParameter("telefono");
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url,"root","");
 
 
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO `usuarios_citas`(`usuario`, `contrasena`) VALUES (?,?)");
-            ps.setString(1,usuariolg);
-            ps.setString(2,contrasenalg);
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO `solicitante_citas`(`nombre_completo`, `documento`, `direccion`, `telefono`) VALUES (?,?,?,?)");
+            ps.setString(1,nombres);
+            ps.setString(2,documentos);
+            ps.setString(3,direccions);
+            ps.setString(4,telefonos);
             i = ps.executeUpdate();
             
         }
@@ -43,7 +47,7 @@
             %>
             <script language="javascript">
             alert("Insertado!");	//Java Script alert message
-            window.location.href = "../usuarios.jsp";
+            window.location.href = "../solicitante.jsp";
             </script>
             <%
             

@@ -14,7 +14,7 @@ CREATE TABLE solicitante_citas
 (
 solicitante_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 nombre_completo VARCHAR(50),
-documento INT,
+documento VARCHAR(14),
 direccion VARCHAR(50),
 telefono INT
 )
