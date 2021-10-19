@@ -1,0 +1,11 @@
+#Cache de imágenes en el navegador durante un mes
+
+<FilesMatch "\.(ico|jpg|jpeg|png|gif)$">
+
+Header set Cache-Control "max-age=2592000, public"
+
+</FilesMatch>
+
+RewriteEngine On 
+
+RewriteRule ^([0-9a-zA-Z]+)$ $1.jsp 

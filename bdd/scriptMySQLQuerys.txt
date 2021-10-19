@@ -1,0 +1,129 @@
+-- CREACION DE TABLAS
+
+
+CREATE TABLE usuarios_citas
+(
+usuarios_id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+usuario varchar(50) NOT NULL,
+contrasena varchar(50) NOT NULL
+)
+
+
+
+CREATE TABLE solicitante_citas
+(
+solicitante_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre_completo VARCHAR(50),
+documento INT,
+direccion VARCHAR(50),
+telefono INT
+)
+
+
+
+CREATE TABLE empresa_citas
+(
+empresa_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50),
+direccion VARCHAR(50),
+tipo_servicio VARCHAR(50)
+)
+
+
+
+CREATE TABLE empleado_citas
+(
+empleado_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre_completo VARCHAR(50),
+dpi INT,
+direccion VARCHAR(50),
+telefono INT,
+empresaid INT,
+FOREIGN KEY (empresaid) REFERENCES empresa_citas(empresa_id)
+)
+
+
+
+CREATE TABLE motivo_atencion_citas
+(
+motivoatencion_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(50),
+descripcion VARCHAR(250)
+)
+
+
+
+CREATE TABLE horarios_atencion_citas
+(
+horario_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+hora VARCHAR(50)
+)
+
+
+
+CREATE TABLE atencion_cliente_citas
+(
+atencion_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+empresaid INT,
+empleadoid INT,
+solicitanteid INT,
+motivoatencionid INT,
+fecha VARCHAR(50),
+horarioid INT,
+FOREIGN KEY (empresaid) REFERENCES empresa_citas(empresa_id),    
+FOREIGN KEY (empleadoid) REFERENCES empleado_citas(empleado_id),    
+FOREIGN KEY (solicitanteid) REFERENCES solicitante_citas(solicitante_id),    
+FOREIGN KEY (motivoatencionid) REFERENCES motivo_atencion_citas(motivoatencion_id),    
+FOREIGN KEY (horarioid) REFERENCES horarios_atencion_citas(horario_id)
+)
+
+
+
+CREATE TABLE estado_atencion_citas
+(
+estado_atencion_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+atencionid INT,
+estados VARCHAR(25),
+FOREIGN KEY (atencionid) REFERENCES
+atencion_cliente_citas(atencion_id)
+)
+
+
+
+
+
+-- INSERCIÓN DE DATOS
+
+INSERT INTO `usuarios_citas`(`usuario`, `contrasena`) VALUES ('qa','pruebas123')
+
+
+INSERT INTO `empresa_citas`(`nombre`, `direccion`, `tipo_servicio`) VALUES ('Clinica Nenes Felices','5-33 Avenida las Américas','Neurología')
+INSERT INTO `empresa_citas`(`nombre`, `direccion`, `tipo_servicio`) VALUES ('Hospital Roosvelt','Calzada Roosevelt, Cdad. de Guatemala 01011','Todos')
+
+
+INSERT INTO `empleado_citas`(`nombre_completo`, `dpi`, `direccion`, `telefono`, `empresaid`) 
+VALUES ('Jesús Daniel',3050441245784,'Ciudad de Guatemala',23354545,1)
+INSERT INTO `empleado_citas`(`nombre_completo`, `dpi`, `direccion`, `telefono`, `empresaid`) 
+VALUES ('Alexandra',3050124789996,'Ciudad San Cristóbal',51424584,1)
+INSERT INTO `empleado_citas`(`nombre_completo`, `dpi`, `direccion`, `telefono`, `empresaid`) 
+VALUES ('Dayna',3025484754120,'Ciudad de Guatemala',41259985,2)INSERT INTO `motivo_atencion_citas`(`nombre`, `descripcion`) VALUES ('Daño Neurológico','Neurología')
+
+
+
+
+INSERT INTO `motivo_atencion_citas`(`nombre`, `descripcion`) VALUES ('Consulta General','Comprende una consulta médica con el doctor particular')
+INSERT INTO `motivo_atencion_citas`(`nombre`, `descripcion`) VALUES ('Oftanmologia','Daño en los ojos o revisión')
+INSERT INTO `motivo_atencion_citas`(`nombre`, `descripcion`) VALUES ('Pediatria','Bebés')
+INSERT INTO `motivo_atencion_citas`(`nombre`, `descripcion`) VALUES ('Daño Neurológico','Neurología')
+
+
+
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('08:00 a.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('09:00 a.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('10:00 a.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('11:00 a.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('12:00 a.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('02:00 p.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('03:00 p.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('04:00 p.m.')
+INSERT INTO `horarios_atencion_citas`(`hora`) VALUES ('05:00 p.m.')
