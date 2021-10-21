@@ -1,9 +1,3 @@
-<%-- 
-    Document   : usuarios
-    Created on : 11/09/2021, 08:45:53 PM
-    Author     : Stark Industries
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="es">
@@ -46,11 +40,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="solicitante.jsp">Solicitante</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="motivosatencion.jsp">Motivos de Atención</a>
-                        </li>
-
+                        </li>                        
+                        
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
                         </li>

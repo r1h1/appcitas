@@ -31,86 +31,43 @@
     <!-- Ionic icons -->
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
-    <title>Creación de Tickets | Sistema de Tickets</title>
+    <title>Atencion Cliente - Citas</title>
 </head>
 
 <body>
-    <div class="d-flex" id="content-wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-container" class="bg-primary">
-
-            <div class="logo">
-                    <h4 class="text-light p-2">Help Desk | Tickets</ion-icon>
-                    </h4>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="dashboard.jsp">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="usuarios.jsp">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="solicitante.jsp">Solicitante</a>
+                        </li>                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="busquedacitas.jsp">Búsqueda de Citas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="solicitudesencola.jsp">Solicitudes en Cola</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <a href="../index.jsp" class="btn btn-danger">Cerrar Sesión</a>
+                    </form>
                 </div>
-
-                <div class="menu">
-
-                    <a href="../views/default.jsp" class="d-block text-secondary bg-light p-3">
-                        <ion-icon name="color-palette"></ion-icon> Inicio
-                    </a>
-                    <br><br>
-
-                    <div class="p-3">
-                        <p class="d-block text-secondary"><ins>Gestión de Soporte</ins></p>
-                        <br><br>
-                        <a href="../views/usuarios.jsp" class="d-block text-light p-2">
-                            <ion-icon name="contact"></ion-icon> Usuarios
-                        </a>
-                    </div>
-
-                    <div class="p-3">
-                        <a href="../views/creacionTickets.jsp" class="d-block text-light p-2">
-                            <ion-icon name="clipboard"></ion-icon> Creacion de Tickets
-                        </a>
-                    </div>
-                    
-                    <div class="p-3">
-                        <a href="../views/ticketsEnCola.jsp" class="d-block text-light p-2">
-                            <ion-icon name="close-circle"></ion-icon> Tickets en Cola (No resueltos)
-                        </a>
-                    </div>
-
-                    <div class="p-3">
-                        <a href="../views/ticketsGenerados.jsp" class="d-block text-light p-2">
-                            <ion-icon name="checkmark-circle"></ion-icon> Busqueda de Tickets
-                        </a>
-                    </div>
-
             </div>
-        </div>
-        <!-- Fin sidebar -->
-
-        <div class="w-100">
-
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div class="container">
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-dark dropdown-toggle active" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Opciones del Sistema
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="../index.jsp">Cerrar sesión</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Fin Navbar -->
+        </nav>
 
             <!-- Page Content -->
             <div id="content" class="w-100">
@@ -119,9 +76,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-9 col-md-8">
-                                <h1 class="font-weight-bold mb-0">Crear un Ticket</h1><br>
-                                <p class="text-muted">Este módulo permite crear un ticket para<br> que un experto de
-                                    soporte solucione un error.</p>
+                                <h1 class="font-weight-bold mb-0">Atención al Cliente</h1><br>
+                                
                             </div>
                         </div>
                     </div>
@@ -134,161 +90,103 @@
                                 <div class="row">
                                     <div class="col-lg-12 d-flex stat my-4">
                                         <div class="mx-auto">
-                                            <p class="lead text-muted py-3">Ingreso de Datos:</p>
                                             <form class="row g-3" action="nuevoTicket/insertTicket.jsp"
                                                 method="POST">
                                                 
-                                                <div class="col-md-6 py-2">
-                                                    <label for="inputEmail4" class="form-label">Nombre del Usuario Solicitante <span class = "red" style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" name="nombreSolicitante"
-                                                           placeholder="Ej: Daniel Rivas" maxlength="50" required>
-                                                </div>
-
-                                                <div class="col-md-6 py-2">
-                                                    <label for="inputEmail4" class="form-label">Empresa que soluciona <span class = "red" style="color: red;">*</span></label>
-                                                    <select class="form-control" id="inputGroupSelect01" name="nombreEmpresa" required> 
+                                                <div class="col-md-12 py-2">
+                                                    <label for="inputEmail4" class="form-label">Nombre del Solicitante <span class = "red" style="color: red;">*</span></label>
+                                                    <select class="form-control" id="inputGroupSelect01" name="nombreSolicitante" required> 
                                                         <option value="">Seleccione...</option>
                                                         <%
-                                                            String host = "localhost";
-                                                            String port = "3306";
-                                                            String bddName = "helpdesksystem";
-                                                            String usuariobdd = "root";
-                                                            String passbdd = "";
-                                                            String url = "jdbc:mysql://localhost:3306/helpdesksystem";
+                                                            
+                                                            String url = "jdbc:mysql://localhost:3306/appcitas";
                                                             Class.forName("com.mysql.jdbc.Driver");
                                                             Connection conn = DriverManager.getConnection(url,"root","");
                                                             
                                                             Statement st = conn.createStatement();
-                                                            String str = "SELECT * FROM empresa_hds";
+                                                            String str = "SELECT * FROM `solicitante_citas`";
                                                             ResultSet rs = st.executeQuery(str);
                                                             
                                                             while(rs.next()){
                                                                 %>
                                                                 
-                                                                <option><%=rs.getString("nombre_empresa")%></option>
+                                                                <option><%=rs.getString("nombre_completo")%></option>
                                                                 
                                                                 <%
-                                                            }
-
-                                                            
+                                                            }                                                            
                                                         %>
-                                                        
-                                                        
                                                     </select>
                                                 </div>
-
+                                                    
                                                 <div class="col-md-6 py-2">
-                                                    <label for="inputEmail4" class="form-label">Empleado que Soluciona <span class = "red" style="color: red;">*</span></label>
-                                                    <select class="form-control" aria-label="Default select example"
-                                                        name="nombreEmpleado" required>
+                                                    <label for="inputEmail4" class="form-label">Empresa Encargada <span class = "red" style="color: red;">*</span></label>
+                                                    <select class="form-control" id="inputGroupSelect01" name="nombreSolicitante" required> 
                                                         <option value="">Seleccione...</option>
                                                         <%
-                               
                                                             
                                                             
                                                             
                                                             Statement st2 = conn.createStatement();
-                                                            String str2 = "SELECT * FROM `empleados_solucion_hds`";
-                                                            ResultSet rs2 = st.executeQuery(str2);
+                                                            String str2 = "SELECT * FROM `empresa_citas`";
+                                                            ResultSet rs2 = st2.executeQuery(str2);
                                                             
                                                             while(rs2.next()){
                                                                 %>
                                                                 
-                                                                <option><%=rs2.getString("nombre_empleado")%></option>
+                                                                <option><%=rs2.getString("nombre")%></option>
                                                                 
                                                                 <%
-                                                            }
-
-                                                            
+                                                            }                                                            
                                                         %>
-                                                        
                                                     </select>
                                                 </div>
-
+                                                    
                                                 <div class="col-md-6 py-2">
-                                                    <label for="inputEmail4" class="form-label">Incidencia de
-                                                        Software</label>
-                                                    <select class="form-control" aria-label="Default select example"
-                                                        name="isoftware">
-                                                        <%
-                               
-                                                            
-                                                            
-                                                            
-                                                            Statement stt = conn.createStatement();
-                                                            String strr = "SELECT * FROM `catalogo_software_hds`";
-                                                            ResultSet rss = st.executeQuery(strr);
-                                                            
-                                                            while(rss.next()){
-                                                                %>
-                                                                
-                                                                <option><%=rss.getString("nombreIncidencia_software")%></option>
-                                                                
-                                                                <%
-                                                            }
-
-                                                            
-                                                        %>
-                                                        
-                                                    </select>
-                                                </div>
-
-                                                <div class="col-md-6 py-2">
-                                                    <label for="inputEmail4" class="form-label">Incidencia de
-                                                        Hardware</label>
-                                                    <select class="form-control" aria-label="Default select example"
-                                                        name="ihardware">
-                                                        
-                                                        <%
-                               
-                                                            
-                                                            
-                                                            
-                                                            Statement sttt = conn.createStatement();
-                                                            String strrr = "SELECT * FROM `catalogo_hardware_hds`";
-                                                            ResultSet rsss = st.executeQuery(strrr);
-                                                            
-                                                            while(rsss.next()){
-                                                                %>
-                                                                
-                                                                <option><%=rsss.getString("nombreIncidencia_hardware")%></option>
-                                                                
-                                                                <%
-                                                            }
-
-                                                            
-                                                        %>
-                                                        
-                                                    </select>
-                                                </div>
-
-                                                <div class="col-md-6 py-2">
-                                                    <label for="inputEmail4" class="form-label">Prioridad <span class = "red" style="color: red;">*</span></label>
-                                                    <select class="form-control" aria-label="Default select example"
-                                                        name="prioridad" required>
+                                                    <label for="inputEmail4" class="form-label">Empleado Encargado <span class = "red" style="color: red;">*</span></label>
+                                                    <select class="form-control" id="inputGroupSelect01" name="nombreSolicitante" required> 
                                                         <option value="">Seleccione...</option>
-                                                        <option>Inmediata</option>
-                                                        <option>Alta</option>
-                                                        <option>Media</option>
-                                                        <option>Baja</option>
-                                                        
+                                                        <%
+                                                            
+                                                            
+                                                            
+                                                            Statement st3 = conn.createStatement();
+                                                            String str3 = "SELECT * FROM `empleado_citas`";
+                                                            ResultSet rs3 = st3.executeQuery(str3);
+                                                            
+                                                            while(rs3.next()){
+                                                                %>
+                                                                
+                                                                <option><%=rs3.getString("nombre_completo")%></option>
+                                                                
+                                                                <%
+                                                            }                                                            
+                                                        %>
                                                     </select>
                                                 </div>
-
-                                                <div class="col-md-12 py-2">
-                                                    <label for="inputEmail4" class="form-label">Asunto <span class = "red" style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" name="asunto"
-                                                        placeholder="Ej: Reparación" maxlength="50" required>
+                                                    
+                                                <div class="col-md-6 py-2">
+                                                    <label for="inputEmail4" class="form-label">Motivo de Atención <span class = "red" style="color: red;">*</span></label>
+                                                    <select class="form-control" id="inputGroupSelect01" name="nombreSolicitante" required> 
+                                                        <option value="">Seleccione...</option>
+                                                        <%
+                                                            
+                                                            
+                                                            
+                                                            Statement st4 = conn.createStatement();
+                                                            String str4 = "SELECT * FROM `motivo_atencion_citas`";
+                                                            ResultSet rs4 = st4.executeQuery(str4);
+                                                            
+                                                            while(rs4.next()){
+                                                                %>
+                                                                
+                                                                <option><%=rs4.getString("nombre")%></option>
+                                                                
+                                                                <%
+                                                            }                                                            
+                                                        %>
+                                                    </select>
                                                 </div>
-
-                                                <div class="col-md-12 py-2">
-                                                    <label for="inputEmail4" class="form-label">Descripción de
-                                                        Incidencia <span class = "red" style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" name="descripcion"
-                                                        placeholder="Ej: Me esta fallando mi commputadora por qué etc, etc..." maxlength="248" required>
-                                                </div>
-
-
+                                                        
                                                 <div class="col-md-12 py-3">
                                                     <button type="submit" class="btn btn-success">Generar Ticket
                                                         ➕</button>

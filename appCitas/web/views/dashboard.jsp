@@ -40,10 +40,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="solicitante.jsp">Solicitante</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="motivosatencion.jsp">Motivos de Atención</a>
-                        </li>
+                        </li>                        
                         
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
@@ -72,7 +69,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4">
-                            <h1 class="font-weight-bold mb-0">Citas | UMG 2021</h1><br>
+                            <h1 class="font-weight-bold mb-0">Citas Médicas | Mariano Gálvez 2021</h1><br>
                             <br>
                             <strong><p class="font-weight-bold" id="bienvenida">Puedes consultar el menú de opciones que tenemos <br> para  que  puedas trabajar en los distintos módulos.</p></strong>
                         </div>

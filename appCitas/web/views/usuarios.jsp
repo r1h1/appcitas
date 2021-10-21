@@ -46,11 +46,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="solicitante.jsp">Solicitante</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="motivosatencion.jsp">Motivos de Atención</a>
-                        </li>
-
+                        </li>                        
+                        
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
                         </li>
