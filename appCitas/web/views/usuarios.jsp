@@ -54,9 +54,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="busquedacitas.jsp">Búsqueda de Citas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="solicitudesencola.jsp">Solicitudes en Cola</a>
-                        </li>
+                       
                     </ul>
                     <form class="d-flex">
                         <a href="../index.jsp" class="btn btn-danger">Cerrar Sesión</a>
@@ -97,14 +95,14 @@
                                             <div class="col-md-12 py-2">
 
                                                 <%-- Usuario asignado: admin o user --%>
-                                                <label for="inputPassword4" class="form-label">Usuario</label>
+                                                <label for="inputPassword4" class="form-label">Usuario <span class = "red" style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" name="usuario" maxlength="50" required>
                                             </div>
 
                                             <div class="col-md-12 py-2">
 
                                                 <%-- Campo Contraseña --%>
-                                                <label for="inputAddress" class="form-label">Contraseña</label>
+                                                <label for="inputAddress" class="form-label">Contraseña <span class = "red" style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" name="contrasena" maxlength="50" required>
                                             </div>
 

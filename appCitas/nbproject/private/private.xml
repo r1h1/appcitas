@@ -12,10 +12,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Stark%20Industries/Escritorio/appCitasProgra/appCitas/web/views/usuarios.jsp</file>
-            <file>file:/D:/Stark%20Industries/Escritorio/appCitasProgra/appCitas/web/views/atencioncliente.jsp</file>
-            <file>file:/D:/Stark%20Industries/Escritorio/appCitasProgra/appCitas/web/views/dashboard.jsp</file>
-            <file>file:/D:/Stark%20Industries/Escritorio/appCitasProgra/appCitas/web/views/solicitante.jsp</file>
+            <file>file:/Z:/Stark/Escritorio/appCitasProgra/appCitas/web/views/citasgeneradas/actualizar.jsp</file>
+            <file>file:/Z:/Stark/Escritorio/appCitasProgra/appCitas/web/views/busquedacitas.jsp</file>
+            <file>file:/Z:/Stark/Escritorio/appCitasProgra/appCitas/web/views/citasgeneradas/cambiarestado.jsp</file>
         </group>
     </open-files>
 </project-private>

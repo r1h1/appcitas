@@ -30,87 +30,44 @@
 
         <!-- Ionic icons -->
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        
+        <link rel="icon" href="https://www.unex.es/organizacion/servicios-universitarios/servicios/siue/archivos/imagenes/Cita.png/image">
 
-        <title>Tickets Generados | Sistema de Tickets</title>
+        <title>Busqueda de Citas - Citas</title>
     </head>
 
     <body>
-        <div class="d-flex" id="content-wrapper">
-
-            <!-- Sidebar -->
-            <div id="sidebar-container" class="bg-primary">
-
-                <div class="logo">
-                    <h4 class="text-light p-2">Help Desk | Tickets</ion-icon>
-                    </h4>
-                </div>
-
-                <div class="menu">
-
-                    <a href="../views/default.jsp" class="d-block text-secondary bg-light p-3">
-                        <ion-icon name="color-palette"></ion-icon> Inicio
-                    </a>
-                    <br><br>
-
-                    <div class="p-3">
-                        <p class="d-block text-secondary"><ins>Gestión de Soporte</ins></p>
-                        <br><br>
-                        <a href="../views/usuarios.jsp" class="d-block text-light p-2">
-                            <ion-icon name="contact"></ion-icon> Usuarios
-                        </a>
-                    </div>
-
-                    <div class="p-3">
-                        <a href="../views/creacionTickets.jsp" class="d-block text-light p-2">
-                            <ion-icon name="clipboard"></ion-icon> Creacion de Tickets
-                        </a>
-                    </div>
-
-                    <div class="p-3">
-                        <a href="../views/ticketsEnCola.jsp" class="d-block text-light p-2">
-                            <ion-icon name="close-circle"></ion-icon> Tickets en Cola (No resueltos)
-                        </a>
-                    </div>
-
-                    <div class="p-3">
-                        <a href="../views/ticketsGenerados.jsp" class="d-block text-light p-2">
-                            <ion-icon name="checkmark-circle"></ion-icon> Busqueda de Tickets
-                        </a>
-                    </div>
-
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="dashboard.jsp">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="usuarios.jsp">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="solicitante.jsp">Solicitante</a>
+                        </li>                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="atencioncliente.jsp">Atención al Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="busquedacitas.jsp">Búsqueda de Citas</a>
+                        </li>
+                       
+                    </ul>
+                    <form class="d-flex">
+                        <a href="../index.jsp" class="btn btn-danger">Cerrar Sesión</a>
+                    </form>
                 </div>
             </div>
-            <!-- Fin sidebar -->
-
-            <div class="w-100">
-
-                <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <div class="container">
-
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link text-dark dropdown-toggle active" href="#" id="navbarDropdown"
-                                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Opciones del Sistema
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="../index.jsp">Cerrar sesión</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <!-- Fin Navbar -->
+        </nav>
 
                 <!-- Page Content -->
                 <div id="content" class="w-100">
@@ -119,9 +76,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-9 col-md-8">
-                                    <h1 class="font-weight-bold mb-0">Búsqueda de Tickets<br>(Solicitados y Finalizados)</h1><br><br>
-                                    <p class="text-muted">Este módulo permite buscar los tickets por estado<br> (Solicitado o Finalizado), para
-                                        poder ver cuales faltan, <br> tener control adecuado de las solicitudes y las soluciones.</p>
+                                    <h1 class="font-weight-bold mb-0">Citas Actuales<br>(En Proceso, Finalizado y Reasignado)</h1><br><br>
+                                    
                                 </div>
                             </div>                           
                         </div>
@@ -136,7 +92,6 @@
                                         <div class="table-responsive w-100 w-100">
                                             <table class="table" id="tabla-mostrar">
                                                 <br>
-                                                <p class="lead text-muted ml-3 py-3">Todos los Tickets <br><br> (Muestra primero los <br> solicitados, y luego, los finalizados) </p>
                                                 
                                                 <%-- IMPRIME LA PÁGINA COMPLETA --%>
                                                 <p class="lead text-muted p-3"><input type="button" value="IMPRIMIR REPORTE: 🖨️" class="btn btn-info" onclick="javascript:window.print()"/></p>
@@ -147,12 +102,12 @@
 
                                                 <%-- MUESTRA TODOS LOS TICKETS --%>
                                                     <tr>
-                                                        <th scope="col"># Del Ticket Creado</th>
-                                                        <th scope="col">Nombre del Solicitante</th>
-                                                        <th scope="col">Asunto de la Incidencia</th>
-                                                        <th scope="col">Incidencia Software</th>
-                                                        <th scope="col">Incidencia Hardware</th>
-                                                        <th scope="col">Estado del Ticket</th>
+                                                        <th scope="col">Empresa</th>
+                                                        <th scope="col">Empleado</th>
+                                                        <th scope="col">Solicitante</th>
+                                                        <th scope="col">Motivo de Atención</th>
+                                                        <th scope="col">Horario</th>
+                                                        <th scope="col">Estado</th>
                                                         <th scope="col"></th>
                                                         <th scope="col"></th>
                                                     </tr> 
@@ -163,12 +118,8 @@
                                                     <%@ page import = "java.sql.SQLException"%>
                                                     <%
 
-                                                            String host = "localhost";
-                                                            String port = "3306";
-                                                            String bddName = "helpdesksystem";
-                                                            String usuariobdd = "root";
-                                                            String passbdd = "";
-                                                            String url = "jdbc:mysql://localhost:3306/helpdesksystem";
+                                                           
+                                                            String url = "jdbc:mysql://localhost:3306/appcitas";
 
                                                             int i=0;
 
@@ -180,15 +131,15 @@
 
 
                                                                 Statement st = conn.createStatement();
-                                                                String str = "SELECT IdTicket, nombre_usuario_solicita, "
-                                                                        + "nombre_empleado, asunto_incidencia, nombreIncidencia_software"
-                                                                        + ",nombreIncidencia_hardware, nombre_empresa, estado_incidencia FROM "
-                                                                        + "ticket_creado_incidencia_hds INNER JOIN empleados_solucion_hds"
-                                                                        + " ON IdEmpleado = IdEmpleado_incidencia INNER JOIN catalogo_software_hds"
-                                                                        + " ON IdIncidenciaSoftware = IdIncidenciasSoftware_incidencia "
-                                                                        + "INNER JOIN catalogo_hardware_hds ON IdIncidenciaHardware = IdIncidenciasHardware_incidencia "
-                                                                        + "INNER JOIN empresa_hds ON IdEmpresa = IdEmpresa_incidencia"
-                                                                        + " ORDER BY estado_incidencia = 'SOLICITADO' desc";
+                                                                String str = "SELECT a.atencion_id, e.nombre, emp.nombre_completo, sc.nombre_completo, ma.nombre, h.hora, a.estado "
+                                                                        + "FROM atencion_cliente_citas a "
+                                                                        + "INNER JOIN empresa_citas e ON a.empresaid = e.empresa_id "
+                                                                        + "INNER JOIN empleado_citas emp ON a.empleadoid = emp.empleado_id "
+                                                                        + "INNER JOIN solicitante_citas sc ON a.solicitanteid = sc.solicitante_id "
+                                                                        + "INNER JOIN motivo_atencion_citas ma ON a.motivoatencionid = ma.motivoatencion_id "
+                                                                        + "INNER JOIN horarios_atencion_citas h ON a.horarioid = h.horario_id "
+                                                                        + "ORDER BY emp.nombre_completo ASC";
+                                                                        
                                                                 
                                                                 ResultSet rs = st.executeQuery(str);
                                                                 while(rs.next()){
@@ -196,12 +147,14 @@
 
                                                 </thead>
                                                 <tbody>
-                                                <td><%=rs.getString("IdTicket")%></td>
-                                                <td><%=rs.getString("nombre_usuario_solicita")%></td>
-                                                <td><%=rs.getString("asunto_incidencia")%></td>
-                                                <td><%=rs.getString("nombreIncidencia_software")%></td>
-                                                <td><%=rs.getString("nombreIncidencia_hardware")%></td>
-                                                <td><%=rs.getString("estado_incidencia")%></td>
+                                                <td><%=rs.getString("e.nombre")%></td>
+                                                <td><%=rs.getString("emp.nombre_completo")%></td>
+                                                <td><%=rs.getString("sc.nombre_completo")%></td>
+                                                <td><%=rs.getString("ma.nombre")%></td>
+                                                <td><%=rs.getString("h.hora")%></td>
+                                                <td><%=rs.getString("a.estado")%></td>
+                                                <td><a href="citasgeneradas/cambiarestado.jsp?ID=<%=rs.getInt("a.atencion_id")%>" class="btn btn-warning">Cambiar Estado</a></td>
+                   
 
 
                                                 </tbody>

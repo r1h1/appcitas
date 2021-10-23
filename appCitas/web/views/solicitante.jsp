@@ -48,9 +48,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="busquedacitas.jsp">Búsqueda de Citas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="solicitudesencola.jsp">Solicitudes en Cola</a>
-                        </li>
+                       
                     </ul>
                     <form class="d-flex">
                         <a href="../index.jsp" class="btn btn-danger">Cerrar Sesión</a>
@@ -90,28 +88,28 @@
                                             <div class="col-md-6 py-2">
 
                                                 <%-- Nombre Completo --%>
-                                                <label for="inputPassword4" class="form-label">Nombre Completo</label>
+                                                <label for="inputPassword4" class="form-label">Nombre Completo <span class = "red" style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" name="nombre" maxlength="40" required>
                                             </div>
 
                                             <div class="col-md-6 py-2">
 
                                                 <%-- Número de Documento --%>
-                                                <label for="inputAddress" class="form-label">Número de Documento (DPI, NIT, Etc)</label>
+                                                <label for="inputAddress" class="form-label">Número de Documento (DPI, NIT, Etc) <span class = "red" style="color: red;">*</span></label>
                                                 <input type="numeric" class="form-control" name="documento" maxlength="13" required>
                                             </div>
 
                                             <div class="col-md-6 py-2">
 
                                                 <%-- Dirección --%>
-                                                <label for="inputAddress" class="form-label">Dirección</label>
+                                                <label for="inputAddress" class="form-label">Dirección <span class = "red" style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" name="direccion" maxlength="40" required>
                                             </div>
 
                                             <div class="col-md-6 py-2">
 
                                                 <%-- Teléfono --%>
-                                                <label for="inputAddress" class="form-label">Teléfono</label>
+                                                <label for="inputAddress" class="form-label">Teléfono <span class = "red" style="color: red;">*</span></label>
                                                 <input type="numeric" class="form-control" name="telefono" maxlength="8" required>
                                             </div>
 

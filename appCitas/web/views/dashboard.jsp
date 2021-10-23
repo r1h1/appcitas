@@ -48,9 +48,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="busquedacitas.jsp">Búsqueda de Citas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="solicitudesencola.jsp">Solicitudes en Cola</a>
-                        </li>
+                       
                     </ul>
                     <form class="d-flex">
                         <a href="../index.jsp" class="btn btn-danger">Cerrar Sesión</a>

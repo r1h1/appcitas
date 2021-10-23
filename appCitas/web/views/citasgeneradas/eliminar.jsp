@@ -1,8 +1,4 @@
-<%-- 
-    Document   : conbdd
-    Created on : 11/09/2021, 02:34:51 PM
-    Author     : Stark Industries
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -13,13 +9,7 @@
 
 
 <%
-    
-        String host = "localhost";
-        String port = "3306";
-        String bddName = "helpdesksystem";
-        String usuariobdd = "root";
-        String passbdd = "";
-        String url = "jdbc:mysql://localhost:3306/helpdesksystem";
+        String url = "jdbc:mysql://localhost:3306/appcitas";
         
         int i=0;
         

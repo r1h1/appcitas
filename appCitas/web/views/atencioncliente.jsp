@@ -27,6 +27,8 @@
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="https://www.unex.es/organizacion/servicios-universitarios/servicios/siue/archivos/imagenes/Cita.png/image">
 
     <!-- Ionic icons -->
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
@@ -58,9 +60,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="busquedacitas.jsp">Búsqueda de Citas</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="solicitudesencola.jsp">Solicitudes en Cola</a>
-                        </li>
+                       
                     </ul>
                     <form class="d-flex">
                         <a href="../index.jsp" class="btn btn-danger">Cerrar Sesión</a>
@@ -90,7 +90,7 @@
                                 <div class="row">
                                     <div class="col-lg-12 d-flex stat my-4">
                                         <div class="mx-auto">
-                                            <form class="row g-3" action="nuevoTicket/insertTicket.jsp"
+                                            <form class="row g-3" action="atencioncliente/insert.jsp"
                                                 method="POST">
                                                 
                                                 <div class="col-md-12 py-2">
@@ -120,7 +120,7 @@
                                                     
                                                 <div class="col-md-6 py-2">
                                                     <label for="inputEmail4" class="form-label">Empresa Encargada <span class = "red" style="color: red;">*</span></label>
-                                                    <select class="form-control" id="inputGroupSelect01" name="nombreSolicitante" required> 
+                                                    <select class="form-control" id="inputGroupSelect01" name="empresa" required> 
                                                         <option value="">Seleccione...</option>
                                                         <%
                                                             
@@ -143,7 +143,7 @@
                                                     
                                                 <div class="col-md-6 py-2">
                                                     <label for="inputEmail4" class="form-label">Empleado Encargado <span class = "red" style="color: red;">*</span></label>
-                                                    <select class="form-control" id="inputGroupSelect01" name="nombreSolicitante" required> 
+                                                    <select class="form-control" id="inputGroupSelect01" name="empleado" required> 
                                                         <option value="">Seleccione...</option>
                                                         <%
                                                             
@@ -166,7 +166,7 @@
                                                     
                                                 <div class="col-md-6 py-2">
                                                     <label for="inputEmail4" class="form-label">Motivo de Atención <span class = "red" style="color: red;">*</span></label>
-                                                    <select class="form-control" id="inputGroupSelect01" name="nombreSolicitante" required> 
+                                                    <select class="form-control" id="inputGroupSelect01" name="motivoatencion" required> 
                                                         <option value="">Seleccione...</option>
                                                         <%
                                                             
@@ -186,11 +186,36 @@
                                                         %>
                                                     </select>
                                                 </div>
+                                                    
+                                               
+                                                    
+                                                <div class="col-md-6 py-2">
+                                                    <label for="inputEmail4" class="form-label">Horas Disponibles <span class = "red" style="color: red;">*</span></label>
+                                                    <select class="form-control" id="inputGroupSelect01" name="horas" required> 
+                                                        <option value="">Seleccione...</option>
+                                                        <%
+                                                            
+                                                            
+                                                            
+                                                            Statement st5 = conn.createStatement();
+                                                            String str5 = "SELECT * FROM `horarios_atencion_citas` WHERE `estado` = 'LIBRE'";
+                                                            ResultSet rs5 = st5.executeQuery(str5);
+                                                            
+                                                            while(rs5.next()){
+                                                                %>
+                                                                
+                                                                <option><%=rs5.getString("hora")%></option>
+                                                                
+                                                                <%
+                                                            }                                                            
+                                                        %>
+                                                    </select>
+                                                </div>
                                                         
                                                 <div class="col-md-12 py-3">
-                                                    <button type="submit" class="btn btn-success">Generar Ticket
-                                                        ➕</button>
+                                                    <button type="submit" class="btn btn-success">GENERAR CITA</button>
                                                 </div>
+                                                    
                                             </form>
                                         </div>
                                     </div>
